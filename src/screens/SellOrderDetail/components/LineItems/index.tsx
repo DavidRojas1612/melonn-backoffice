@@ -16,7 +16,7 @@ function LineItems({ variant, data }: Props) {
       {data?.lineItems?.map((article) => (
         <div
           key={article?.product_name}
-          className="shadow w-max overflow-hidden border-b mb-4 border-gray-200 sm:rounded-lg"
+          className="shadow w-full overflow-hidden border-b mb-4 border-gray-200 sm:rounded-lg"
         >
           <div className="grid grid-cols-2 gap-2">
             <FieldText

@@ -8,7 +8,7 @@ interface Props {
 }
 function FieldText({ title, label, capitalize }: Props) {
   return (
-    <div className="px-6 py-4 whitespace-nowrap">
+    <div className="px-6 py-4">
       <span className="text-sm text-gray-500">{title}</span>
       <h3
         className={clsx('text-sm text-gray-900', {

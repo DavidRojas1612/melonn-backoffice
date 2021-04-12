@@ -13,7 +13,7 @@ function ShippingInfo({ variant, data }: Props) {
       <h1 className="font-poppins text-xl px-6 py-4 tracking-wide">
         Datos de envío
       </h1>
-      <div className="shadow w-max overflow-hidden border-b border-gray-200 sm:rounded-lg">
+      <div className="shadow w-full overflow-hidden border-b border-gray-200 sm:rounded-lg">
         <div className="grid grid-cols-2 gap-2">
           <FieldText
             title="Direccion"

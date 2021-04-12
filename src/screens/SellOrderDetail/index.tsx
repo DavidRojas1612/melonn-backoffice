@@ -55,7 +55,7 @@ function SellOrderDetail() {
   if (error) return <p>Oh no... {error.message}</p>;
 
   return (
-    <div className="mx-auto w-max grid p-10 grid-cols-2 gap-4">
+    <div className="mx-auto w-240 grid p-10 grid-cols-2 gap-4">
       <OrderInfo data={data?.order_information?.[0] || {}} />
       <ShippingInfo data={data?.shipping_info?.[0] || {}} />
       <PromisesDates data={data?.promises_dates?.[0] || {}} />
