@@ -2,13 +2,11 @@ import React from 'react';
 import { Control, useController } from 'react-hook-form';
 import SelectRC from 'react-select';
 
-type SelectedObjectType = {
-  label: string;
-  value: string | number;
-};
+import { SelectedObjectType } from '../../utils/types';
 
 interface Props {
-  options: unknown[];
+  options: SelectedObjectType[] | [];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   control: Control<any>;
   name: string;
   placeholder?: string;

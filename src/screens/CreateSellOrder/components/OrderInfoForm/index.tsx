@@ -8,6 +8,7 @@ import Input from '../../../../components/Input';
 import Select from '../../../../components/Select';
 
 import { FieldsForm, FieldsFormType } from '../../constant';
+import { SelectedObjectType } from '../../../../utils/types';
 
 interface Props {
   register: UseFormRegister<FieldsFormType>;
@@ -44,7 +45,9 @@ function OrderInfoForm({ register, control }: Props) {
         label="Métodos de pago"
         placeholder="Método de pago"
         name={FieldsForm.SHIPPING_METHOD}
-        options={shippingMethods?.getShippingMethods || []}
+        options={
+          (shippingMethods?.getShippingMethods as SelectedObjectType[]) || []
+        }
         rules={{
           require: true,
         }}
