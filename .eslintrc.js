@@ -28,6 +28,7 @@ module.exports = {
   rules: {
     'linebreak-style': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'prettier/prettier': [
       'error',
       {

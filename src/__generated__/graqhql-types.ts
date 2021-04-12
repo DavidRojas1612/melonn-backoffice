@@ -106,6 +106,21 @@ export type ShippingMethods = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type GetShippingMethodsQueryVariables = Exact<{ [key: string]: never }>;
+
+export type GetShippingMethodsQuery = { __typename?: 'Query' } & {
+  getShippingMethods?: Maybe<
+    Array<
+      Maybe<
+        { __typename?: 'ShippingMethods' } & {
+          value: ShippingMethods['id'];
+          label: ShippingMethods['name'];
+        }
+      >
+    >
+  >;
+};
+
 export type GetSellOrdersQueryVariables = Exact<{ [key: string]: never }>;
 
 export type GetSellOrdersQuery = { __typename?: 'Query' } & {
@@ -178,6 +193,7 @@ export type LineItemsResponse = Maybe<
     >;
   }
 >;
+
 export type GetSellOrderDetailQuery = { __typename?: 'Query' } & {
   order_information?: Maybe<Array<OrderInformation>>;
   shipping_info?: Maybe<Array<ShippingInfo>>;
@@ -185,6 +201,64 @@ export type GetSellOrderDetailQuery = { __typename?: 'Query' } & {
   line_items?: Maybe<Array<LineItemsResponse>>;
 };
 
+export const GetShippingMethodsDocument = gql`
+  query GetShippingMethods {
+    getShippingMethods {
+      value: id
+      label: name
+    }
+  }
+`;
+
+/**
+ * __useGetShippingMethodsQuery__
+ *
+ * To run a query within a React component, call `useGetShippingMethodsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetShippingMethodsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetShippingMethodsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetShippingMethodsQuery(
+  baseOptions?: Apollo.QueryHookOptions<
+    GetShippingMethodsQuery,
+    GetShippingMethodsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<
+    GetShippingMethodsQuery,
+    GetShippingMethodsQueryVariables
+  >(GetShippingMethodsDocument, options);
+}
+export function useGetShippingMethodsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetShippingMethodsQuery,
+    GetShippingMethodsQueryVariables
+  >
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<
+    GetShippingMethodsQuery,
+    GetShippingMethodsQueryVariables
+  >(GetShippingMethodsDocument, options);
+}
+export type GetShippingMethodsQueryHookResult = ReturnType<
+  typeof useGetShippingMethodsQuery
+>;
+export type GetShippingMethodsLazyQueryHookResult = ReturnType<
+  typeof useGetShippingMethodsLazyQuery
+>;
+export type GetShippingMethodsQueryResult = Apollo.QueryResult<
+  GetShippingMethodsQuery,
+  GetShippingMethodsQueryVariables
+>;
 export const GetSellOrdersDocument = gql`
   query GetSellOrders {
     getSellOrders {
