@@ -26,13 +26,13 @@ function CreateSellOrder() {
     },
   });
   const { register, handleSubmit, control } = useForm({
-    mode: 'onSubmit',
+    mode: 'all',
     reValidateMode: 'onChange',
     defaultValues: DEFAULT_VALUES,
     shouldFocusError: true,
   });
 
-  const { isValid } = useFormState({
+  const { isValid, errors } = useFormState({
     control,
   });
 
@@ -67,7 +67,11 @@ function CreateSellOrder() {
           <LineItemsForm register={register} control={control} />
         </div>
         <div className="w-full flex justify-end">
-          <Button variant="primary" disabled={!isValid} type="submit">
+          <Button
+            variant="primary"
+            disabled={!isValid && Object.keys(errors).length === 0}
+            type="submit"
+          >
             crear
           </Button>
         </div>
